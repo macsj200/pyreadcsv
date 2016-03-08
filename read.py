@@ -1,5 +1,14 @@
-import csv
-with open('eggs.csv', newline='') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-    for row in spamreader:
+import csv, os
+file_dir = "/Users/maxjohansen/Downloads/Forecasting Project"
+file_raw_dir = os.path.join(file_dir, "Raw")
+
+contents1 = os.listdir(file_dir)
+contents2 = os.listdir(file_raw_dir)
+
+files = [os.path.join(file_dir,filename) for filename in contents1 if not os.path.isdir(os.path.join(file_dir,filename))] + [os.path.join(file_dir,file_raw_dir) for filename in contents2 if not os.path.isdir(os.path.join(file_dir,file_raw_dir))]
+
+
+with open(files[0]) as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
         print(', '.join(row))
