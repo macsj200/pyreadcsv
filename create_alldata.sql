@@ -1,0 +1,18 @@
+CREATE TABLE alldata (
+    id INT NOT NULL AUTO_INCREMENT,
+    Year-Month DATE NOT NULL,
+    Supplier-Name VARCHAR(255) NOT NULL,
+    SKU/CatalogNum VARCHAR(255) NOT NULL,
+    UnitOfMeasurement VARCHAR(255) NOT NULL,
+    InvoiceLineUnitPrice DECIMAL(10, 2) NULL,
+    Quantity DECIMAL(10, 2) NULL,
+    InvoiceLineExtendedPrice DECIMAL(10, 2) NULL,
+    PRIMARY KEY (id)
+);
+
+LOAD DATA INFILE './2012_2015_noSUP_SKU_std.csv'
+INTO TABLE discounts
+FIELDS TERMINATED BY ','
+ENCLOSED BY ''
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
