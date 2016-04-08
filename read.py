@@ -1,4 +1,4 @@
-import csv, os
+import csv, os, sqlalchemy
 file_dir = "/Users/maxjohansen/Downloads/Forecasting Project"
 file_raw_dir = os.path.join(file_dir, "Raw")
 
@@ -11,4 +11,5 @@ for file in files:
     with open(files[0], encoding="latin-1") as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            print(', '.join(row))
+            pass
+            # print(', '.join(row))
